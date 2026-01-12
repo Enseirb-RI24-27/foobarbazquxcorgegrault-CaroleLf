@@ -16,7 +16,7 @@ public class Foo {
     }
 
     public void addBaz(Baz baz){
-        bazs += baz;
+        bazs[bazs.length] = baz;
     }
 
     public void addGrault(){
