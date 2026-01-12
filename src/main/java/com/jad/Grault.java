@@ -5,9 +5,6 @@ public class Grault {
         return this.foo;
     }
 
-    public void setFoo(Foo foo) {
-        this.foo = foo;
-    }
 
     private Foo foo;
 
