@@ -42,16 +42,15 @@ public class Foo {
         this.graults = graults;
     }
 
-    Bar bar;
+    private Bar bar;
 
-    Baz[] bazs;
+    private Baz[] bazs;
 
-    Qux qux;
+    private  Qux qux;
 
-    Corge corge;
+    private Corge corge;
 
-    Grault[] graults;
-
+    private Grault[] graults;
 
     public Foo(Bar bar){
 

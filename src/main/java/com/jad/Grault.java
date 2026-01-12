@@ -9,7 +9,7 @@ public class Grault {
         this.foo = foo;
     }
 
-    Foo foo;
+    private Foo foo;
 
     Grault(Foo foo) {
         this.foo = foo;

@@ -1,6 +1,7 @@
 package com.jad;
 
 public class Corge {
+    private Foo foo;
 
     public Foo getFoo() {
         return this.foo;
@@ -10,7 +11,6 @@ public class Corge {
         this.foo = foo;
     }
 
-    Foo foo;
     public Corge(Foo foo) {
         foo = foo;
     }
