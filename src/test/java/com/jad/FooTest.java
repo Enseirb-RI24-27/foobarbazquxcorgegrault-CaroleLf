@@ -79,7 +79,7 @@ class FooTest {
 
     @Test
     void bazsAttributeTest() {
-        Utils.testIfPrivateAttributeExistsWithGenericType("java.util.List<com.jad.Grault.Baz>",
+        Utils.testIfPrivateAttributeExistsWithGenericType("java.util.List<com.jad.Baz>",
                                                           "bazs",
                                                           FooTest.fooClass);
     }
@@ -163,22 +163,22 @@ class FooTest {
 
     @Test
     void addBazAndGetBazsTest() {
-        Class<?> bazClass = assertDoesNotThrow(() -> ClassLoader.getSystemClassLoader().loadClass("com.jad.com.jad.Grault.Baz"),
-                                               "The class com.jad.Grault.Baz does not exist.");
+        Class<?> bazClass = assertDoesNotThrow(() -> ClassLoader.getSystemClassLoader().loadClass("com.jad.com.jad.Baz"),
+                                               "The class com.jad.Baz does not exist.");
         Method addBazMethod = assertDoesNotThrow(() -> FooTest.fooClass.getDeclaredMethod("addBaz", bazClass),
                                                  "The method 'addBaz' does not exist.");
         Method getBazsMethod = assertDoesNotThrow(() -> FooTest.fooClass.getDeclaredMethod("getBazs"),
                                                   "The method 'getBazs' does not exist.");
         addBazMethod.setAccessible(true);
         Object bazInstance = assertDoesNotThrow(() -> bazClass.getDeclaredConstructor().newInstance(),
-                                                "Failed to create an instance of com.jad.Grault.Baz.");
+                                                "Failed to create an instance of com.jad.Baz.");
         assertDoesNotThrow(() -> addBazMethod.invoke(FooTest.fooInstance, bazInstance),
                            "Failed to invoke the method 'addBaz'.");
         @SuppressWarnings("unchecked")
         List<Object> bazs = assertDoesNotThrow(() -> (List<Object>) getBazsMethod.invoke(FooTest.fooInstance),
                                                "Failed to invoke the method 'getBazs'.");
         assertNotNull(bazs, "The method 'getBazs' returned null.");
-        assertTrue(bazs.contains(bazInstance), "The 'bazs' list does not contain the added com.jad.Grault.Baz instance.");
+        assertTrue(bazs.contains(bazInstance), "The 'bazs' list does not contain the added com.jad.Baz instance.");
     }
 
     @Test
@@ -271,7 +271,7 @@ class FooTest {
         assertFalse(graults.isEmpty(), "The 'graults' list should not be empty after adding a Grault.");
 
         // Verify the last added Grault
-        Object lastGrault = graults.getLast();
+        Object lastGrault = graults.getClass();
         Object returnedFoo = assertDoesNotThrow(() -> getFooMethod.invoke(lastGrault),
                                                 "Failed to invoke the method 'getFoo' on the last added Grault.");
         assertEquals(FooTest.fooInstance, returnedFoo,

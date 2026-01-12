@@ -12,7 +12,7 @@ public class Corge {
     }
 
     public Corge(Foo foo) {
-        foo = foo;
+        this.foo = foo;
     }
 
 
