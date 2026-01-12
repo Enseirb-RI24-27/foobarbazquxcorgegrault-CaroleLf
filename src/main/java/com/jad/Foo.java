@@ -1,8 +1,10 @@
+package com.jad;
+
 public class Foo {
 
     Bar bar;
 
-    Baz[] bazs;
+    Grault.Baz[] bazs;
 
     Qux qux;
 
@@ -15,7 +17,7 @@ public class Foo {
 
     }
 
-    public void addBaz(Baz baz){
+    public void addBaz(Grault.Baz baz){
         bazs[bazs.length] = baz;
     }
 

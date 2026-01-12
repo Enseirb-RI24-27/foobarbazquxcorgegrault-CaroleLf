@@ -79,7 +79,7 @@ class FooTest {
 
     @Test
     void bazsAttributeTest() {
-        Utils.testIfPrivateAttributeExistsWithGenericType("java.util.List<com.jad.Baz>",
+        Utils.testIfPrivateAttributeExistsWithGenericType("java.util.List<com.jad.com.jad.Grault.Baz>",
                                                           "bazs",
                                                           FooTest.fooClass);
     }
@@ -163,22 +163,22 @@ class FooTest {
 
     @Test
     void addBazAndGetBazsTest() {
-        Class<?> bazClass = assertDoesNotThrow(() -> ClassLoader.getSystemClassLoader().loadClass("com.jad.Baz"),
-                                               "The class Baz does not exist.");
+        Class<?> bazClass = assertDoesNotThrow(() -> ClassLoader.getSystemClassLoader().loadClass("com.jad.com.jad.Grault.Baz"),
+                                               "The class com.jad.Grault.Baz does not exist.");
         Method addBazMethod = assertDoesNotThrow(() -> FooTest.fooClass.getDeclaredMethod("addBaz", bazClass),
                                                  "The method 'addBaz' does not exist.");
         Method getBazsMethod = assertDoesNotThrow(() -> FooTest.fooClass.getDeclaredMethod("getBazs"),
                                                   "The method 'getBazs' does not exist.");
         addBazMethod.setAccessible(true);
         Object bazInstance = assertDoesNotThrow(() -> bazClass.getDeclaredConstructor().newInstance(),
-                                                "Failed to create an instance of Baz.");
+                                                "Failed to create an instance of com.jad.Grault.Baz.");
         assertDoesNotThrow(() -> addBazMethod.invoke(FooTest.fooInstance, bazInstance),
                            "Failed to invoke the method 'addBaz'.");
         @SuppressWarnings("unchecked")
         List<Object> bazs = assertDoesNotThrow(() -> (List<Object>) getBazsMethod.invoke(FooTest.fooInstance),
                                                "Failed to invoke the method 'getBazs'.");
         assertNotNull(bazs, "The method 'getBazs' returned null.");
-        assertTrue(bazs.contains(bazInstance), "The 'bazs' list does not contain the added Baz instance.");
+        assertTrue(bazs.contains(bazInstance), "The 'bazs' list does not contain the added com.jad.Grault.Baz instance.");
     }
 
     @Test
