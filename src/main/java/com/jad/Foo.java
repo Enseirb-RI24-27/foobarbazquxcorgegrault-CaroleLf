@@ -40,6 +40,10 @@ public class Foo {
 
     private Grault[] graults;
 
+    public void setCorge(Corge corge) {
+        this.corge = corge;
+    }
+
     public Foo(Bar bar){
         bar = new Bar();
         this.bar = bar;
