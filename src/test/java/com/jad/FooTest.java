@@ -79,7 +79,7 @@ class FooTest {
 
     @Test
     void bazsAttributeTest() {
-        Utils.testIfPrivateAttributeExistsWithGenericType("java.util.List<com.jad.com.jad.Grault.Baz>",
+        Utils.testIfPrivateAttributeExistsWithGenericType("java.util.List<com.jad.Grault.Baz>",
                                                           "bazs",
                                                           FooTest.fooClass);
     }
